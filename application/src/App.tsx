@@ -1,43 +1,63 @@
+import React, { useState } from 'react';
+import './App.css';
+import Navbar from './navbar';
+import AddExpense from './components/expenses/expenseform';
+import ExpenseCard, { expenseprop } from './components/expenses/expenselist';
 
-import './App.css'
-import Navbar from './navbar'
-import AddIncome from './addIncome'
-import IncomeCard, { incomeprop } from './incomeCard'
-import { useState } from 'react'
+interface Expense {
+  category: string;
+  title: string;
+  amount: number;
+  date: string;
+}
 
 function App() {
-  const [income, setIncome] = useState<incomeprop[]>([] as incomeprop[]);
-  const [totalIncome, setIncomeamount] = useState(0)
+  const [expenses, setExpenses] = useState<Expense[]>([]);
+  const [totalExpense, setTotalExpense] = useState(0);
 
-  function addIncomeform(event:any){
-    event.preventDefault()
-    let category = event.target.category.value
-    let amount = event.target.amount.value
-    let date = event.target.date.value
-    let description = event.target.description.value
-    setIncome([...income,{category: category, amount: amount, date: date, description: description}])
-    setIncomeamount((prevValue) => prevValue + parseInt(amount))
-    console.log(income)
-  }
+  const addExpenseForm = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const category = formData.get('category') as string;
+    const title = formData.get('title') as string;
+    const amount = parseInt(formData.get('amount') as string);
+    const date = formData.get('date') as string;
 
+    const newExpense = {
+      category,
+      title,
+      amount,
+      date,
+    };
 
+    setExpenses([...expenses, newExpense]);
+    setTotalExpense(prevValue => prevValue + amount);
+
+    event.currentTarget.reset();
+  };
 
   return (
     <>
-    <Navbar/>
-    <div className="main">
-    <AddIncome onSubmit = {addIncomeform}/>
-    <div className="incomes">
-    {income.map((element)=> {
-        return <IncomeCard category={element.category}  amount={element.amount} date={element.date} description={element.description} key= {element.date}/>
-    })}
-    </div>
-    </div>
-    <div className="totalIncome">
-      <h2>Total Income: {totalIncome}</h2>
-    </div>
+      <Navbar />
+      <div className="main">
+        <AddExpense onSubmit={addExpenseForm} />
+        <div className="expenses">
+          {expenses.map((expense, index) => (
+            <ExpenseCard
+              key={index}
+              category={expense.category}
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="totalIncome">
+        <h2>Total Expense: {totalExpense}</h2>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

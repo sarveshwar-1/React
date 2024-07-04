@@ -1,63 +1,43 @@
-import FC,{useState} from 'react';
+import React, { useState } from 'react';
 
-const ExpenseForm =() =>{
-    const[title, setTitle]=useState('');
-    const[amount, setAmount]=useState('');
-    const[date, setDate]=useState('');
-    const[Category, setCategory]=useState('');
-const handleSubmit = (e) => {
-    e.preventDefault();
+const AddExpense: React.FC<{ onSubmit: (event: React.FormEvent<HTMLFormElement>) => void }> = ({ onSubmit }) => {
+  const [category, setCategory] = useState('');
 
-}
+  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setCategory(event.target.value);
+  };
 
+  return (
+    <div className="addexpense">
+      <form onSubmit={onSubmit}>
+        <div className="category">
+          <label htmlFor="category">Category</label>
+          <select name="category" value={category} onChange={handleCategoryChange} required>
+            <option value="">Select Category</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+        <div className="title">
+          <label htmlFor="title">Title</label>
+          <input type="text" name="title" id="title" required />
+        </div>
+        <div className="amount">
+          <label htmlFor="amount">Amount</label>
+          <input type="number" name="amount" id="amount" required />
+        </div>
+        <div className="date">
+          <label htmlFor="date">Date</label>
+          <input type="date" name="date" id="date" required />
+        </div>
+        <button type="submit">
+          <span className="add">+</span> <span className="add-expense">Add Expense</span>
+        </button>
+      </form>
+    </div>
+  );
+};
 
-
-    return(
-        
-        <form onSubmit={handleSubmit} id="expenseform">
-            <div>
-                <label>Category</label>
-                <select value={Category} onChange={(e) => setCategory(e.target.value)} >
-                    <option value="">Select Category</option>
-                    <option value="Food">Food</option>
-                    <option value="Transport">Transport</option>
-                    <option value="Entertainment">Entertainment</option>
-                    <option value="others">Others</option>
-
-                </select>
-            </div>
-            <br></br>
-            <div>
-                <label>Title</label>
-                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
-            </div>
-            <br></br>
-            <div>
-                <label>Amount</label>
-                <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)}/>
-            </div>
-            <br></br>
-            <div>
-                <label>Date</label>
-                <input type="date" value={date} onChange={(e) => setDate(e.target.value)}/>
-            </div>
-            <br></br>
-            <button type="submit">Add Expense</button>
-            
-            
-
-
-
-
-
-
-
-
-
-        </form>
-        
-    )
-
-}
-
-export default ExpenseForm
+export default AddExpense;

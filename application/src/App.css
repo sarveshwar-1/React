@@ -1,173 +1,167 @@
-html{
-    height: 100%;
-    width: 100%;
-    background-image: url(./assets/background.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-
-}
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    text-align: center;
-    font-size: 20px;
-    height: 4em;
-    font-style: normal;
-    font-family: sans-serif;
-    border-radius: 10px;
-    align-items: center;
-    color: #808080;
-
+html {
+  height: 100%;
+  width: 100%;
+  background-image: url(./assets/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-.navbar-elements{
-    display: flex;
-    justify-content: space-between;
-    width:20%
-
-}
-.navbar-elements .income-navbar:hover, .navbar-profile:hover,.navbar-elements .expenses-navbar:hover{
-    cursor: pointer;
-    color: #f1f1f1;
-    transform: scale(1.05);
-    transition: 0.5s ease;
-}
-.navbar-profile{
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 10px;
-}
-.Logo img{
-    margin-left: 10px;
-    height: 2.5em ;
-}
-.main{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    margin-top: 5em;
-}
-.incomes{
-    display: flex;
-    flex-direction: column; /* Updated this line */
-    color:#f1f1f1;
-    align-items: space-evenly;
-    width: 60%;
-    background-color: rgba(64,64,64,0.7);
-    border-radius: 15px;
-}
-.incomes .income-card{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-    padding: 5px 0px 5px 0px;
-    margin: 5px 0px 5px 0px;
-    border-radius: 10px;
-    color: white;
-    font-size: 20px;
-}
-.addIncome{
-    display: flex;
-    color:#f1f1f1;
-    flex-direction: column;
-    align-items: center;
-    width: 30%;
-    border-radius: 15px;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  height: 4em;
+  font-style: normal;
+  font-family: sans-serif;
+  border-radius: 10px;
+  align-items: center;
+  color: #808080;
 }
 
-.addIncome form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    background-color: rgba(64,64,64,0.7);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.navbar-elements {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
 }
 
-.addIncome form div {
-    width: 100%;
-    margin-bottom: 15px;
+.navbar-elements .income-navbar:hover,
+.navbar-profile:hover,
+.navbar-elements .expenses-navbar:hover {
+  cursor: pointer;
+  color: #f1f1f1;
+  transform: scale(1.05);
+  transition: 0.5s ease;
 }
 
-.addIncome form label {
-    display: block;
-    margin-bottom: 5px;
-    color:#C0C0C0;
-    font-size: 16px;
+.navbar-profile {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
 }
 
-.addIncome form input[type="text"],
-.addIncome form input[type="number"],
-.addIncome form input[type="date"] {
-    width: 95%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1.5px solid black;
-    background-color: #606060;
-    color: white;
-    font-size: 14px;
+.Logo img {
+  margin-left: 10px;
+  height: 2.5em;
 }
 
-.addIncome form button[type="submit"] {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 35%;
-    height: 50px;
-    border-radius: 100px;
-    border: none;
-    background-color: #A0A0A0;
-    font-size: 17px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.addIncome form button[type="submit"] .add{
-    font-size: 40px;
-    color: white;
-
+.main {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 5em;
 }
 
-.addIncome form button[type="submit"]:hover .add{
-    transform: rotate(180deg);
-    transition: 0.5s ease;
+.expenses {
+  display: flex;
+  flex-direction: column;
+  color: #f1f1f1;
+  align-items: space-evenly;
+  width: 60%;
+  background-color: rgba(64, 64, 64, 0.7);
+  border-radius: 15px;
+}
 
+.expenses .expense-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 5px 0px 5px 0px;
+  margin: 5px 0px 5px 0px;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
 }
-.totalIncome{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 1%;
-    padding-left: 11%;
-    width: 100%;
-    height: 50px;
-    color: white;
-    font-size: 20px;
-    border-radius: 15px;
-    margin-top: 10px;
+
+.addexpense {
+  display: flex;
+  color: #f1f1f1;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  border-radius: 15px;
 }
-.App{
+
+.addexpense form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(64, 64, 64, 0.7);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.addexpense form div {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.addexpense form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #c0c0c0;
+  font-size: 16px;
+}
+
+.addexpense form input[type="text"],
+.addexpense form input[type="number"],
+.addexpense form input[type="date"] {
+  width: 95%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1.5px solid black;
+  background-color: #606060;
+  color: white;
+  font-size: 14px;
+}
+
+.addexpense form button[type="submit"] {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 35%;
+  height: 50px;
+  border-radius: 100px;
+  border: none;
+  background-color: #a0a0a0;
+  font-size: 17px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addexpense form button[type="submit"] .add {
+  font-size: 40px;
+  color: white;
+}
+
+.addexpense form button[type="submit"]:hover .add {
+  transform: rotate(180deg);
+  transition: 0.5s ease;
+}
+
+.totalIncome {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1%;
+  padding-left: 11%;
+  width: 100%;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.App {
   text-align: center;
 }
-
-#expenseform{
-  height: 250px;
-  width: 250px;
-  
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-
-
-
