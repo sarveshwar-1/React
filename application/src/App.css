@@ -154,3 +154,18 @@ html{
     border-radius: 15px;
     margin-top: 10px;
 }
+.App{
+  text-align: center;
+}
+
+#expenseform{
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+
+
