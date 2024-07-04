@@ -1,6 +1,6 @@
 
-import SpendSenseImage from './assets/logo-no-background.png';
-export default function Navbar() {
+import SpendSenseImage from '../assets/logo-no-background.png';
+export default function Navbar(props:any) {
     return (
         <div className="navbar">
             <div>
@@ -10,10 +10,10 @@ export default function Navbar() {
             </div>
             
             <div className="navbar-elements">
-            <p className='expenses-navbar'>
+            <p className='expenses-navbar' onClick={()=>{props.onClicked('expense')}}>
                 expenses
             </p>
-            <p className='income-navbar'>
+            <p className='income-navbar' onClick={()=>{props.onClicked('income')}}>
                 income
             </p>
             </div>
