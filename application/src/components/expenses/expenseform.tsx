@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import FC,{useState} from 'react';
 
 const ExpenseForm =() =>{
     const[title, setTitle]=useState('');
